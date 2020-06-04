@@ -41,15 +41,15 @@ RCT_EXPORT_METHOD(logSignUp: (NSString *)tag) {
 }
 
 RCT_EXPORT_METHOD(logSearch: (NSDictionary*)props) {
-    NSString* tag = props[KEY_TAG];
-    NSString* searchString = props[KEY_SEARCH_STRING];
+    NSString* tag = [RCTConvert NSString:props[KEY_TAG]];
+    NSString* searchString = [RCTConvert NSString:props[KEY_SEARCH_STRING]];
     
     [KakaoAdTracker sendSearchEventWithTag:tag searchString:searchString];
 }
 
 RCT_EXPORT_METHOD(logViewContent: (NSDictionary*)props) {
-    NSString* tag = props[KEY_TAG];
-    NSString* contentId = props[KEY_CONTENT_ID];
+    NSString* tag = [RCTConvert NSString:props[KEY_TAG]];
+    NSString* contentId = [RCTConvert NSString:props[KEY_CONTENT_ID]];
     
     [KakaoAdTracker sendViewContentEventWithTag:tag contentId:contentId];
 }
@@ -84,8 +84,8 @@ RCT_EXPORT_METHOD(logPurchase: (NSDictionary*)props products:(NSArray<NSDictiona
     }
     
     
-    NSString* tag = props[KEY_TAG];
-    NSString* currency = props[KEY_CURRENCY];
+    NSString* tag = [RCTConvert NSString:props[KEY_TAG]];
+    NSString* currency = [RCTConvert NSString:props[KEY_CURRENCY]];
     if(!currency){ currency = @"KRW"; }
     
     [KakaoAdTracker sendPurchaseEventWithTag:tag
