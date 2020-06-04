@@ -27,6 +27,11 @@ NSString* KEY_NAME = @"name";
 NSString* KEY_QUANTITY = @"quantity";
 NSString* KEY_PRICE = @"price";
 
+RCT_EXPORT_METHOD(init: (NSString *)trackId) {
+    KakaoAdTracker.trackId = trackId;
+    [KakaoAdTracker activate];
+}
+
 RCT_EXPORT_METHOD(setTrackId: (NSString *)trackId) {
     KakaoAdTracker.trackId = trackId;
 }
@@ -66,7 +71,7 @@ RCT_EXPORT_METHOD(logPurchase: (NSDictionary*)props products:(NSArray<NSDictiona
     
     for (NSDictionary* product in products) {
         NSString* name = [RCTConvert NSString:product[KEY_NAME]];
-        NSUInteger quantity = [RCTConvert NSUInteger:product[KEY_NAME]];
+        NSUInteger quantity = [RCTConvert NSUInteger:product[KEY_QUANTITY]];
         double price = [RCTConvert double:product[KEY_PRICE]];
         
         if(name){

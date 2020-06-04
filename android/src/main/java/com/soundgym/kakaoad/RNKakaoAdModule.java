@@ -9,6 +9,7 @@ import com.facebook.react.bridge.ReadableMap;
 import com.kakao.ad.common.json.*;
 import com.kakao.ad.tracker.KakaoAdTracker;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Currency;
 import java.util.List;
@@ -105,7 +106,7 @@ public class RNKakaoAdModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     private void logPurchase(ReadableMap props, ReadableArray products){
-        List<Product> provideProducts = Arrays.asList();
+        List<Product> provideProducts = new ArrayList<Product>();
 
         for (int i = 0; i < products.size(); i++){
             ReadableMap product = products.getMap(i);
