@@ -8,13 +8,26 @@ React-Native KakaoAd SDK, (Not official)
 ## How to use
 ```jsx
 import React from "react";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, AppState, AppStateStatus } from "react-native";
 import KakaoAd from "react-native-kakao-ad";
 
 const App = () => {
+    const appState = React.useRef<AppStateStatus>(AppState.currentState);
+    
     React.useEffect(() => {
         KakaoAd.init("your-track-id");
+        AppState.addEventListener("change", appStateHandler);
+        
+        return () => AppState.removeEventListener("change", appStateHandler);
     }, []);
+    
+    const appStateHandler = (nextAppState: AppStateStatus) => {
+        if (appState.current.match(/inactive|background/) && nextAppState === "active") {
+            KakaoAd.activate();
+        }
+        
+        appState.current = nextAppState;
+    };
 
     const logAllEvents = () => {
         KakaoAd.logRegistration();
