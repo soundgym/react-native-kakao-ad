@@ -18,6 +18,7 @@ import java.util.HashMap;
 
 public class RNKakaoAdModule extends ReactContextBaseJavaModule {
     private static ReactApplicationContext reactContext;
+    private static String trackId = "";
 
     RNKakaoAdModule(ReactApplicationContext context) {
         super(context);
@@ -29,23 +30,26 @@ public class RNKakaoAdModule extends ReactContextBaseJavaModule {
         return "RNKakaoAd";
     }
 
-    @Override
-    public Map<String, Object> getConstants() {
-        final Map<String, Object> constants = new HashMap<>();
-        constants.put("count", 1);
-        return constants;
-    }
-
     private void sendEvent(Event event) {
         KakaoAdTracker.getInstance().sendEvent(event);
     }
 
     @ReactMethod
-    private void init() {
-        if (!KakaoAdTracker.isInitialized()) {
-            String trackId = reactContext.getString(R.string.kakao_ad_track_id);
+    private void init(String id){
+        this.setTrackId(id);
+        this.activate();
+    }
+
+    @ReactMethod
+    private void activate() {
+        if (!KakaoAdTracker.isInitialized() && !trackId.equals("")) {
             KakaoAdTracker.getInstance().init(reactContext, trackId);
         }
+    }
+
+    @ReactMethod
+    private void setTrackId(String id) {
+        trackId = id;
     }
 
     @ReactMethod
