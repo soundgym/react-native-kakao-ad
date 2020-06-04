@@ -2,7 +2,8 @@
   "compilerOptions": {
     "declaration": true,
     "esModuleInterop": true,
-    "jsx": "react-native",
+    "allowJs": true,
+    "checkJs": true,
     "lib": ["ESNext"],
     "module": "CommonJS",
     "noEmitOnError": true,
@@ -15,5 +16,5 @@
     "target": "ESNext"
   },
   "include": ["src"],
-  "exclude": ["node_modules", "**/__tests__/*"]
+  "exclude": ["node_modules"]
 }
