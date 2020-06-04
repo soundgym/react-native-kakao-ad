@@ -27,8 +27,11 @@ NSString* KEY_NAME = @"name";
 NSString* KEY_QUANTITY = @"quantity";
 NSString* KEY_PRICE = @"price";
 
-RCT_EXPORT_METHOD(init: (NSString *)trackId) {
+RCT_EXPORT_METHOD(setTrackId: (NSString *)trackId) {
     KakaoAdTracker.trackId = trackId;
+}
+
+RCT_EXPORT_METHOD(activate) {
     [KakaoAdTracker activate];
 }
 
