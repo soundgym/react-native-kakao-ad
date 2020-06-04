@@ -68,7 +68,6 @@
 				FA0EFF5C236CC8FB00069FA8 /* Sources */,
 				FA0EFF5D236CC8FB00069FA8 /* Frameworks */,
 				FA0EFF5E236CC8FB00069FA8 /* CopyFiles */,
-				D794C2FD2488C9A600375121 /* Run Script (Unsupported Architectures Patch) */,
 			);
 			buildRules = (
 			);
@@ -110,27 +109,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		D794C2FD2488C9A600375121 /* Run Script (Unsupported Architectures Patch) */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script (Unsupported Architectures Patch)";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nbash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/KakaoAdSDK.framework/strip-frameworks.sh\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA0EFF5C236CC8FB00069FA8 /* Sources */ = {
