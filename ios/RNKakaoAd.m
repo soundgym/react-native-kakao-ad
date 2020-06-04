@@ -6,21 +6,21 @@
 //
 
 #import "RNKakaoAd.h"
+#import <KakaoAdSDK/KakaoAdSDK.h>
 
 @implementation RNKakaoAd
-
-RCT_EXPORT_MODULE();
-
-+ (void)hello {}
-
-- (NSDictionary *)constantsToExport
-{
-  return @{ @"count": @1 };
-}
 
 + (BOOL)requiresMainQueueSetup
 {
   return YES;
+}
+
+RCT_EXPORT_MODULE();
+
+
+RCT_EXPORT_METHOD(init: (NSString *)trackId) {
+    KakaoAdTracker.trackId = trackId;
+    [KakaoAdTracker activate];
 }
 
 @end
