@@ -8,7 +8,7 @@ React-Native KakaoAd SDK, (Not official)
 ## How to use
 ```jsx
 import React from "react";
-import { TouchableOpacity, AppState, AppStateStatus } from "react-native";
+import { TouchableOpacity, AppState, AppStateStatus, Platform } from "react-native";
 import KakaoAd from "react-native-kakao-ad";
 
 const App = () => {
@@ -23,7 +23,7 @@ const App = () => {
     
     const appStateHandler = (nextAppState: AppStateStatus) => {
         if (appState.current.match(/inactive|background/) && nextAppState === "active") {
-            KakaoAd.activate();
+            Platform.OS === "ios" && KakaoAd.activate();
         }
         
         appState.current = nextAppState;
