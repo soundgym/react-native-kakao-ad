@@ -71,11 +71,11 @@ public class RNKakaoAdModule extends ReactContextBaseJavaModule {
     private void logSearch(ReadableMap props){
         Search event = new Search();
 
-        if(!props.isNull("tag")){
+        if(props.hasKey("tag")){
             event.tag = props.getString("tag"); // 분류
         }
 
-        if(!props.isNull("searchString")){
+        if(props.hasKey("searchString")){
             event.search_string = props.getString("searchString"); // 검색 문자열
         }
 
@@ -86,11 +86,11 @@ public class RNKakaoAdModule extends ReactContextBaseJavaModule {
     private void logViewContent(ReadableMap props){
         ViewContent event = new ViewContent();
 
-        if(!props.isNull("tag")){
+        if(props.hasKey("tag")){
             event.tag = props.getString("tag"); // 분류
         }
 
-        if(!props.isNull("contentId")){
+        if(props.hasKey("contentId")){
             event.content_id = props.getString("contentId"); // 상품 코드
         }
 
@@ -113,15 +113,15 @@ public class RNKakaoAdModule extends ReactContextBaseJavaModule {
 
             Product provideProduct = new Product();
 
-            if(!product.isNull("name")){
+            if(product.hasKey("name")){
                 provideProduct.name = product.getString("name");
             }
 
-            if(product.isNull("quantity")){
+            if(product.hasKey("quantity")){
                 provideProduct.quantity = product.getInt("quantity");
             }
 
-            if(product.isNull("price")){
+            if(product.hasKey("price")){
                 provideProduct.price = product.getDouble("price");
             }
 
@@ -143,10 +143,10 @@ public class RNKakaoAdModule extends ReactContextBaseJavaModule {
         event.total_quantity = totalQuantity;
         event.total_price = totalPrice;
 
-        if(!props.isNull("tag")){
+        if(props.hasKey("tag")){
             event.tag = props.getString("tag");
         }
-        if(!props.isNull("currency")){
+        if(props.hasKey("currency")){
             event.currency = Currency.getInstance(props.getString("currency"));
         } else {
             event.currency =  Currency.getInstance(Locale.KOREA);

@@ -1,6 +1,6 @@
 {
     "name": "react-native-kakao-ad",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Kakao-Ad SDK for react-native",
     "homepage": "https://github.com/soundgym/react-native-kakao-ad",
     "main": "lib/index.js",
