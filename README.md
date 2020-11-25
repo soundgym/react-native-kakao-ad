@@ -5,11 +5,35 @@
 # react-native-kakao-ad
 React-Native KakaoAd SDK, (Not official)
 
+## Setup
+
+- Android
+
+Add below dependencies to your `project/android/build.gradle`
+
+```diff
+allprojects {
+    repositories {
++       google()
++       jcenter()
+    }
+}
+
+subprojects {
+    repositories {
+        mavenCentral()
++       maven {
++           url 'http://devrepo.kakao.com:8088/nexus/content/groups/public/'
++       }
+    }
+}
+```
+
 ## How to use
 ```jsx
 import React from "react";
 import { TouchableOpacity, AppState, AppStateStatus, Platform } from "react-native";
-import KakaoAd from "react-native-kakao-ad";
+import KakaoAd, { CurrencyCode } from "react-native-kakao-ad";
 
 const App = () => {
     const appState = React.useRef<AppStateStatus>(AppState.currentState);
