@@ -16,15 +16,19 @@ allprojects {
     repositories {
 +       google()
 +       jcenter()
+        //link: https://devtalk.kakao.com/t/gradle-7-0/104816
++       maven {
++           url 'https://devrepo.kakao.com/nexus/content/groups/public/'
++       }
     }
 }
 
 subprojects {
     repositories {
         mavenCentral()
-+       maven {
-+           url 'http://devrepo.kakao.com:8088/nexus/content/groups/public/'
-+       }
+-       maven {
+-           url 'http://devrepo.kakao.com:8088/nexus/content/groups/public/'
+-       }
     }
 }
 ```
