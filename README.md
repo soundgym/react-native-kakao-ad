@@ -16,15 +16,7 @@ allprojects {
     repositories {
 +       google()
 +       jcenter()
-    }
-}
-
-subprojects {
-    repositories {
-        mavenCentral()
-+       maven {
-+           url 'http://devrepo.kakao.com:8088/nexus/content/groups/public/'
-+       }
++       maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
     }
 }
 ```
